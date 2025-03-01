@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Équipes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6">Test API Équipes</h1>
+
+        <!-- Formulaire de création d'équipe -->
+        <form id="teamForm" class="mb-8 space-y-6 p-6 border rounded-lg">
+            <div>
+                <label class="block mb-2">Nom de l'équipe</label>
+                <input type="text" id="teamName" class="w-full p-2 border rounded" required>
+            </div>
+
+            <!-- Chef d'équipe -->
+            <div class="p-4 border rounded bg-gray-50">
+                <h3 class="font-bold mb-4">Chef d'équipe</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="chefNom" placeholder="Nom" class="p-2 border rounded" required>
+                    <input type="text" id="chefPrenom" placeholder="Prénom" class="p-2 border rounded" required>
+                    <input type="email" id="chefEmail" placeholder="Email" class="p-2 border rounded" required>
+                    <input type="tel" id="chefTelephone" placeholder="Téléphone" class="p-2 border rounded" required>
+                    <input type="text" id="chefCNE" placeholder="CNE" class="p-2 border rounded" required>
+                    <input type="text" id="chefCIN" placeholder="CIN" class="p-2 border rounded" required>
+                    <select id="chefFiliere" class="p-2 border rounded" required>
+                        <option value="">Sélectionnez une filière</option>
+                        <option value="Informatique">Informatique</option>
+                        <option value="Mécanique">Mécanique</option>
+                        <option value="Électrique">Électrique</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Membres -->
+            <div class="space-y-4">
+                <h3 class="font-bold">Membres de l'équipe</h3>
+                
+                <!-- Membre 1 -->
+                <div class="p-4 border rounded">
+                    <h4 class="mb-2">Membre 1</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" id="membre1Nom" placeholder="Nom" class="p-2 border rounded" required>
+                        <input type="text" id="membre1Prenom" placeholder="Prénom" class="p-2 border rounded" required>
+                        <input type="email" id="membre1Email" placeholder="Email" class="p-2 border rounded" required>
+                        <input type="tel" id="membre1Telephone" placeholder="Téléphone" class="p-2 border rounded" required>
+                        <input type="text" id="membre1CNE" placeholder="CNE" class="p-2 border rounded" required>
+                        <input type="text" id="membre1CIN" placeholder="CIN" class="p-2 border rounded" required>
+                        <select id="membre1Filiere" class="p-2 border rounded" required>
+                            <option value="">Sélectionnez une filière</option>
+                            <option value="Informatique">Informatique</option>
+                            <option value="Mécanique">Mécanique</option>
+                            <option value="Électrique">Électrique</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Membre 2 -->
+                <div class="p-4 border rounded">
+                    <h4 class="mb-2">Membre 2</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" id="membre2Nom" placeholder="Nom" class="p-2 border rounded" required>
+                        <input type="text" id="membre2Prenom" placeholder="Prénom" class="p-2 border rounded" required>
+                        <input type="email" id="membre2Email" placeholder="Email" class="p-2 border rounded" required>
+                        <input type="tel" id="membre2Telephone" placeholder="Téléphone" class="p-2 border rounded" required>
+                        <input type="text" id="membre2CNE" placeholder="CNE" class="p-2 border rounded" required>
+                        <input type="text" id="membre2CIN" placeholder="CIN" class="p-2 border rounded" required>
+                        <select id="membre2Filiere" class="p-2 border rounded" required>
+                            <option value="">Sélectionnez une filière</option>
+                            <option value="Informatique">Informatique</option>
+                            <option value="Mécanique">Mécanique</option>
+                            <option value="Électrique">Électrique</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Membre 3 -->
+                <div class="p-4 border rounded">
+                    <h4 class="mb-2">Membre 3</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" id="membre3Nom" placeholder="Nom" class="p-2 border rounded" required>
+                        <input type="text" id="membre3Prenom" placeholder="Prénom" class="p-2 border rounded" required>
+                        <input type="email" id="membre3Email" placeholder="Email" class="p-2 border rounded" required>
+                        <input type="tel" id="membre3Telephone" placeholder="Téléphone" class="p-2 border rounded" required>
+                        <input type="text" id="membre3CNE" placeholder="CNE" class="p-2 border rounded" required>
+                        <input type="text" id="membre3CIN" placeholder="CIN" class="p-2 border rounded" required>
+                        <select id="membre3Filiere" class="p-2 border rounded" required>
+                            <option value="">Sélectionnez une filière</option>
+                            <option value="Informatique">Informatique</option>
+                            <option value="Mécanique">Mécanique</option>
+                            <option value="Électrique">Électrique</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+                Créer l'équipe
+            </button>
+        </form>
+
+        <!-- Liste des équipes -->
+        <div>
+            <h2 class="text-xl font-bold mb-4">Équipes existantes</h2>
+            <button onclick="loadTeams()" class="mb-4 p-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                Rafraîchir la liste
+            </button>
+            <div id="teamsList" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // Fonction pour créer une équipe
+        document.getElementById('teamForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const teamData = {
+                teamName: document.getElementById('teamName').value,
+                members: [
+                    {
+                        role: 'chef',
+                        nom: document.getElementById('chefNom').value,
+                        prenom: document.getElementById('chefPrenom').value,
+                        email: document.getElementById('chefEmail').value,
+                        telephone: document.getElementById('chefTelephone').value,
+                        filiere: document.getElementById('chefFiliere').value,
+                        cne: document.getElementById('chefCNE').value,
+                        cin: document.getElementById('chefCIN').value,
+                        membreAppinsciences: true
+                    },
+                    {
+                        role: 'membre',
+                        nom: document.getElementById('membre1Nom').value,
+                        prenom: document.getElementById('membre1Prenom').value,
+                        email: document.getElementById('membre1Email').value,
+                        telephone: document.getElementById('membre1Telephone').value,
+                        filiere: document.getElementById('membre1Filiere').value,
+                        cne: document.getElementById('membre1CNE').value,
+                        cin: document.getElementById('membre1CIN').value,
+                        membreAppinsciences: true
+                    },
+                    {
+                        role: 'membre',
+                        nom: document.getElementById('membre2Nom').value,
+                        prenom: document.getElementById('membre2Prenom').value,
+                        email: document.getElementById('membre2Email').value,
+                        telephone: document.getElementById('membre2Telephone').value,
+                        filiere: document.getElementById('membre2Filiere').value,
+                        cne: document.getElementById('membre2CNE').value,
+                        cin: document.getElementById('membre2CIN').value,
+                        membreAppinsciences: true
+                    },
+                    {
+                        role: 'membre',
+                        nom: document.getElementById('membre3Nom').value,
+                        prenom: document.getElementById('membre3Prenom').value,
+                        email: document.getElementById('membre3Email').value,
+                        telephone: document.getElementById('membre3Telephone').value,
+                        filiere: document.getElementById('membre3Filiere').value,
+                        cne: document.getElementById('membre3CNE').value,
+                        cin: document.getElementById('membre3CIN').value,
+                        membreAppinsciences: true
+                    }
+                ]
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/teams`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(teamData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Équipe créée avec succès !');
+                    document.getElementById('teamForm').reset();
+                    loadTeams(); // Rafraîchir la liste des équipes
+                } else {
+                    alert(`Erreur: ${data.message}`);
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue lors de la création de l\'équipe');
+            }
+        });
+
+        // Fonction pour charger la liste des équipes
+        async function loadTeams() {
+            try {
+                const response = await fetch(`${API_URL}/teams`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    const teamsListElement = document.getElementById('teamsList');
+                    teamsListElement.innerHTML = '';
+
+                    data.teams.forEach(team => {
+                        const teamElement = document.createElement('div');
+                        teamElement.className = 'p-4 border rounded';
+                        teamElement.innerHTML = `
+                            <h3 class="font-bold">${team.name}</h3>
+                            <p>Nombre de membres: ${team.member_count}</p>
+                            <button onclick="viewTeam(${team.id})" 
+                                    class="mt-2 p-2 bg-green-500 text-white rounded hover:bg-green-600">
+                                Voir les détails
+                            </button>
+                        `;
+                        teamsListElement.appendChild(teamElement);
+                    });
+                } else {
+                    alert('Erreur lors du chargement des équipes');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue lors du chargement des équipes');
+            }
+        }
+
+        // Fonction pour voir les détails d'une équipe
+        async function viewTeam(teamId) {
+            try {
+                const response = await fetch(`${API_URL}/teams/${teamId}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    const details = `
+                        Équipe: ${data.team.name}
+                        \n\nMembres:\n${data.team.members.map(member => 
+                            `- ${member.role.toUpperCase()}: ${member.prenom} ${member.nom} (${member.email})`
+                        ).join('\n')}
+                    `;
+                    alert(details);
+                } else {
+                    alert('Erreur lors du chargement des détails de l\'équipe');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue lors du chargement des détails de l\'équipe');
+            }
+        }
+
+        // Charger les équipes au chargement de la page
+        loadTeams();
+    </script>
+</body>
+</html>
