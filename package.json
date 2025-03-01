@@ -91,5 +91,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MEHDI-1MB1/test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MEHDI-1MB1/test/issues"
+  },
+  "homepage": "https://github.com/MEHDI-1MB1/test#readme",
   "description": ""
 }
